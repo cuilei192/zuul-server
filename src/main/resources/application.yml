@@ -1,0 +1,21 @@
+server:
+  port: 8050
+spring:
+  application:
+    name: zuulServer
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: service-ribbon
+    api-b:
+      path: /api-b/**
+      serviceId: service-feign
+  ribbon:
+    ConnectTimeout: 5000
+    ReadTimeout: 5000
+#    不同service设置超时时间
+#    hi-service:
+#      ribbon:
+#        ConnectTimeout: 500
+#        ReadTimeout: 500
